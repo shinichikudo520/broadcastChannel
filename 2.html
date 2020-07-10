@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var bc = new BroadcastChannel('test_channel');
+			bc.postMessage(2);
+			bc.onmessage = function(ev){
+				console.log(ev)
+				if(ev.data === 2){
+					bc.postMessage(true);
+				}
+				if(ev.data === true){
+					return
+				}else{
+					console.log(222222222222222)
+				}
+			}
+			
+		</script>
+	</body>
+</html>
